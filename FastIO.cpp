@@ -1,8 +1,8 @@
-int GetChar() {
+auto GetChar = []() {
   static char buf[1 << 20], *l = 0, *r = 0;
   if(l == r) r = (l = buf) + fread(buf, 1, 1 << 20, stdin);
   return l == r ? EOF : *l++;
-}
+};
 template <typename T>
 void Read(T &n) {
   char c = GetChar(); int sgn = 1; n = 0;
